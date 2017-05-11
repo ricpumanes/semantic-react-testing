@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Menu, Icon, Input, Segment, Dimmer, Loader } from 'semantic-ui-react';
+import { Table, Input, Dimmer, Loader } from 'semantic-ui-react';
 import _ from 'underscore';
 
 export default class Songs extends React.Component {
@@ -13,7 +13,7 @@ export default class Songs extends React.Component {
   componentWillReceiveProps(nextProps) {
     setTimeout(() => {
       this.setState({ data: nextProps.data });
-    }, 5 * 1000);
+    }, 2 * 1000);
   }
 
   _renderTableData(data) {
@@ -65,7 +65,11 @@ export default class Songs extends React.Component {
     const { data } = this.state;
     return (
       <div>
+        <h1>Songs</h1>
         <Input placeholder='Filter By Title' onChange={this._handleFilter}/>
+        <br />
+        <br />
+        <br />
         <div className="ewan">
           <Table sortable celled>
             <Table.Header>

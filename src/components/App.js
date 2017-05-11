@@ -4,10 +4,10 @@ import papaparse from 'papaparse';
 
 import 'semantic-ui-css/semantic.min.css';
 
-import csvData from '../public/songgrid.csv';
-import './App.css';
+import csvData from '../../public/songgrid.csv';
 
 import Songs from './Songs';
+import Header from './Header';
 
 class App extends Component {
 
@@ -60,9 +60,12 @@ class App extends Component {
     const { data } = this.state;
 
     return (
-      <Container>
-        <Songs data={data} />
-      </Container>
+      <div>
+        <Header />
+        <Container id="mainContainer">
+          <Songs data={data} />
+        </Container>
+      </div>
     );
   }
 }
