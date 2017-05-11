@@ -10,6 +10,10 @@ export default class Songs extends React.Component {
     this.state = { data: [] };
   }
 
+  componentDidMount() {
+    this.props.actions.getSongsList();
+  }
+
   componentWillReceiveProps(nextProps) {
     setTimeout(() => {
       this.setState({ data: nextProps.data });
