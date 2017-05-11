@@ -1,0 +1,5 @@
+.ewan {
+    position: relative;
+    height: 50vh !important;
+    overflow-y: scroll;
+}
