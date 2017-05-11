@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Menu, Icon, Input } from 'semantic-ui-react';
+import { Table, Menu, Icon, Input, Segment, Dimmer, Loader } from 'semantic-ui-react';
 import _ from 'underscore';
 
 export default class Songs extends React.Component {
@@ -11,7 +11,9 @@ export default class Songs extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ data: nextProps.data });
+    setTimeout(() => {
+      this.setState({ data: nextProps.data });
+    }, 5 * 1000);
   }
 
   _renderTableData(data) {
@@ -90,7 +92,18 @@ export default class Songs extends React.Component {
             </Table.Header>
 
             <Table.Body>
-              {this._renderTableData(data)}
+              {
+                data && data.length > 0 ?
+                this._renderTableData(data)
+                :
+                <Table.Row>
+                  <Table.Cell>
+                    <Dimmer active inverted>
+                      <Loader inverted content='Loading' />
+                    </Dimmer>
+                  </Table.Cell>
+                </Table.Row>
+              }
             </Table.Body>
           </Table>
         </div>
